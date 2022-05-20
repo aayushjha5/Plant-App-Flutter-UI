@@ -3,23 +3,25 @@ import 'package:plant_app/constants.dart';
 import 'package:plant_app/screens/home/home_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Plant App',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: kBackgroundColor,
         primaryColor: kPrimaryColor,
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        scaffoldBackgroundColor: kBackgroundColor,
       ),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

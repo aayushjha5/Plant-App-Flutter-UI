@@ -1,27 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/constants.dart';
-
-import 'featurred_plants.dart';
-import 'header_with_seachbox.dart';
-import 'recomend_plants.dart';
-import 'title_with_more_bbtn.dart';
+import 'package:plant_app/screens/home/components/featured_plants.dart';
+import 'package:plant_app/screens/home/components/header_with_searchbox.dart';
+import 'package:plant_app/screens/home/components/recommended_plants.dart';
+import 'package:plant_app/screens/home/components/title_with_more_button.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    // It will provie us total height  and width of our screen
     Size size = MediaQuery.of(context).size;
-    // it enable scrolling on small device
+    //its for exhibiting scrollable behaviour on small devices.
     return SingleChildScrollView(
+      //column is for whole body
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          //divinding the body into parts
+          //A
           HeaderWithSearchBox(size: size),
-          TitleWithMoreBtn(title: "Recomended", press: () {}),
-          RecomendsPlants(),
-          TitleWithMoreBtn(title: "Featured Plants", press: () {}),
-          FeaturedPlants(),
-          SizedBox(height: kDefaultPadding),
+          //B
+          const TitlewithMoreButton(
+            title: 'Recommended',
+          ),
+          //C
+          const RecommendedPlants(),
+          //D
+          const TitlewithMoreButton(
+            title: 'Featured Plants',
+          ),
+          //E
+          const FeaturedPlants(),
+          //F
+          const SizedBox(
+            height: kDefaultPadding,
+          )
         ],
       ),
     );
